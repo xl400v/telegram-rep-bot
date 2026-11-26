@@ -1,4 +1,4 @@
-app = "telegram-rating-bot"
+app = "telegram-rep-bot"
 primary_region = "ams"
 
 [processes]
