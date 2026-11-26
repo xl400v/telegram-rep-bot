@@ -1,4 +1,4 @@
-import sqlite3, logging
+import sqlite3, os, logging
 from telegram import Update
 from telegram.ext import (
     Application,
