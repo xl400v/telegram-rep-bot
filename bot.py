@@ -1,4 +1,5 @@
 import sqlite3, os, logging
+from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import (
     Application,
@@ -9,10 +10,14 @@ from telegram.ext import (
 )
 
 logging.basicConfig(level=logging.INFO)
+load_dotenv()
 
 ADMIN_ID = int(os.getenv('ADMIN_ID'))
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 DATABASE_URL = os.getenv('DATABASE_URL')
+
+if not BOT_TOKEN:
+    raise ValueError("ОШИБКА: BOT_TOKEN не найден в файле .env!")
 
 # ---------------- DB ----------------
 conn = sqlite3.connect(DATABASE_URL, check_same_thread=False)
