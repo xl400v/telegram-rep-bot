@@ -1,17 +1,20 @@
 [project]
-name = "mensrise-bot"
-version = "0.1.0"
+name = "risebot"
+version = "0.2.0"
 description = "Telegram bot for viewing participant activity and ratings"
 readme = "README.md"
-requires-python = ">=3.15"
+requires-python = ">=3.12"
 dependencies = [
-    "python-telegram-bot>=22.8",
-    "load-dotenv>=0.1.0",
+    "python-telegram-bot>=20.0",
+    "pydantic-settings>=2.0",
 ]
 
 [project.scripts]
-mensrise-bot = "MensRise_bot:main"
+risebot = "bot_package.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bot_package"]
 
 [build-system]
-requires = ["uv_build>=0.13.9,<0.14.0"]
-build-backend = "uv_build"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
