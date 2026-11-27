@@ -1,13 +1,20 @@
-FROM python:3.15-slim
+FROM python:3.12-slim
+
+# Устанавливаем uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Копируем файлы конфигурации
+COPY pyproject.toml uv.lock ./
 
+# Устанавливаем зависимости
+RUN uv sync --frozen --no-install-project --system
+
+# Копируем код
 COPY . .
 
-# Создаём пустую sqlite-базу при каждом деплое
-RUN touch auron.db
+# СОЗДАЕМ ПАПКУ ДЛЯ ДАННЫХ
+RUN mkdir -p /app/data
 
-CMD ["python", "bot.py"]
+CMD ["uv", "run", "bot.py"]

@@ -1,5 +1,0 @@
-app = "telegram-rep-bot"
-primary_region = "ams"
-
-[processes]
-app = "python bot.py"
