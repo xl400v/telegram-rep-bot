@@ -6,19 +6,27 @@
 
 ## 🚀 Установка и быстрый старт
 
-1. Клонировать репозиторий
-2. Установить зависимости: `pip install -r requirements.txt`
-3. Настроить переменные окружения `.env`
-4. Запустить: `python bot.py`
+<details open>
+  <summary>Установка через `uv`</summary>
 
+  1. Установка интремента для работы с зависимостями `curl -LsSf https://astral.sh/uv/install.sh | sh`  
+    В новом проекте необходимо установить зависимости `uv init --name bot_package`
+  2. Установить зависимости: `uv sync`
+  3. Настроить переменные окружения `.env`
+  4. Запустить: `uv run risebot`
 
-## 🚀 Установка и опытный старт `uv`
+</details>
 
-1. Установка интремента для работы с зависимостями `curl -LsSf https://astral.sh/uv/install.sh | sh`  
-   В новом проекте необходимо установить зависимости `uv init --name bot_package`
-2. Установить зависимости: `uv sync`
-3. Настроить переменные окружения `.env`
-4. **Запустить:** `uv run risebot`
+<details>
+  <summary>Установка через `pip`</summary>
+
+  1. Клонировать репозиторий
+  2. Установить зависимости *(вручную)*: `pip install -r requirements.txt`
+  3. Настроить переменные окружения `.env`
+  4. Добавить `src` в **PYTHONPATH** `export PYTHONPATH=$PYTHONPATH:$(pwd)/src`
+  5. Запустить: `python bot.py`
+
+</details>
 
 ### Настройка. Создайте в корне проекта файл `.env`
 

@@ -11,7 +11,7 @@ if not ENV.bot_token:
 
 def main():
     database.init()
-    app = Application.builder().token(ENV.bot_token).build()  
+    app = Application.builder().token(ENV.bot_token).build()
 
     app.add_handler(CommandHandler("start", handlers.start))
     app.add_handler(CommandHandler("join", handlers.join))
@@ -19,7 +19,7 @@ def main():
     app.add_handler(CommandHandler("report", handlers.report))
     app.add_handler(CommandHandler("withdraw", handlers.withdraw))
     app.add_handler(CommandHandler("feedback", handlers.feedback))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.handle_message))  
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.handle_message))
 
     try:
         logging.warning("\033[92m==== [%s] BOT STARTED ====\033[0m", datetime.datetime.now().strftime("%H:%M:%S"))
